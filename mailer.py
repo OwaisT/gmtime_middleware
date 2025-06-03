@@ -16,6 +16,8 @@ smtp_username = os.getenv("EMAIL_ID")
 smtp_password = os.getenv("EMAIL_PASSWORD")
 # Recipient for email
 recipient = os.getenv("RECIPIENT")
+# Fallbback recipient for email
+fallback_recipient = os.getenv("FALLBACK_RECIPIENT")
 
 def send_contact_email(data):
     # DATA from user
@@ -66,7 +68,7 @@ def send_order_confirmation(order_data):
         msg['Subject'] = subject
         msg['From'] = smtp_username
         msg['To'] = email
-        bcc_email = ["owais@orbweber.com"]
+        bcc_email = [fallback_recipient]
         recipients = [email] + bcc_email
         # Send the test email
         server.sendmail(smtp_username, recipients, msg.as_string())
