@@ -1,0 +1,6 @@
+.env
+/samplejsons
+/__pycache__
+
+requirements.txt
+/cart/__pycache__
